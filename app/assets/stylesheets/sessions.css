@@ -1,0 +1,12 @@
+.session input{
+  font-size: 1.5rem;
+  border: none;
+  outline: none;
+  border-bottom: 1px solid blueviolet;
+  margin: 20px 0px;
+}
+
+.session .button{
+  background: blueviolet;
+  color: white;
+}

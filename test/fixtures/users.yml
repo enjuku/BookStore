@@ -1,0 +1,12 @@
+admin:
+  id: 1
+  name: "Patrick"
+  email: "patrick@mail.com"
+  password_digest: <%= BCrypt::Password.create('secret') %>
+  admin: true
+
+user:
+  id: 2
+  name: "Johnny"
+  email: "johnny@mail.com"
+  password_digest: <%= BCrypt::Password.create('secret') %>

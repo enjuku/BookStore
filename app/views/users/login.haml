@@ -1,0 +1,7 @@
+= simple_form_for :session, url: login_path do |f|
+    = f.input :email, placeholder: "E-mail", label: false, required: true, autofocus: true
+    = f.input :password, placeholder: "Password", label: false, required: true
+    = f.button :submit, "Log in"
+
+%p Don't have an account? #{link_to "Sign up", new_user_path}
+%p Forgot your password? #{link_to "Click here", lost_password_path}

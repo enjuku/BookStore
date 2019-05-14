@@ -1,0 +1,17 @@
+.show-book
+    .books-block
+        .book-info
+            .book-img
+                %a{:href => "/books/<%= book.id %>"}
+                =image_tag @book.book_img.url(:book_index)
+        .book-description
+            %p= "Author: #{@book.author.name}"
+            %p= "Title: #{@book.title}"
+            -@book.genres.each do |genre|
+                %p= "Genres: #{genre.name}"
+            %p= "Description #{@book.description}"
+        .bottom-book-menu
+            %p.back-btn= link_to 'Back', :back
+            - if User.current.admin?
+                %p= link_to "Edit", edit_book_path(@book)
+                %p= link_to "Delete", book_path(@book), data: { confirm: "Are you sure?" }, :method => :delete

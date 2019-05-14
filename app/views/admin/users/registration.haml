@@ -1,0 +1,10 @@
+%h1 Create your account
+
+= simple_form_for @user, url: register_path  do |f|
+    = f.input :name, placeholder: "Name", label: false, autofocus: true
+    = f.input :email, placeholder: "E-mail", label: false  
+    = f.input :password, placeholder: "Password", label: false  
+    = f.input :password_confirmation, placeholder: "Password confirmation", label: false
+    = f.button :submit, "Create account"
+
+%p Already have an account? #{link_to "Log in", "login"}

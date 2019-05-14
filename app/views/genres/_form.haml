@@ -1,0 +1,3 @@
+= simple_form_for @genre, defaults: { wrapper_html: { class: 'genre-form' } } do |f|
+    = f.input :name, placeholder: "Name", autofocus: true
+    = f.button :submit, "Create"

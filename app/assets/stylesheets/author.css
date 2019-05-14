@@ -1,0 +1,15 @@
+
+.author-form label{
+    width: 20%;
+}
+
+.author-form{
+    color :blueviolet;
+}
+
+.author-form input{
+  background: transparent;
+  border: none;
+  width: 40%;
+  border-bottom: blueviolet 1px solid;
+}

@@ -1,0 +1,9 @@
+bookone:
+  title: "How to win friends and infuence people"
+  description: "something"
+  author: carnegie
+  genres: nonfiction
+  book_img_file_name: "1.jpg"
+  book_img_content_type: "image/jpeg"
+  book_img_file_size: 13188
+  book_img_updated_at: "2019-05-10 17:09:15"

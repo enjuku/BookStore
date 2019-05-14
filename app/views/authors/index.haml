@@ -1,0 +1,23 @@
+%h1 Listing authors
+
+%table
+    %thead
+        %tr
+        %th First name
+        %th Last name
+        %th Books
+        %th
+        %th
+
+    %tbody
+    - @authors.each do |author|
+        %tr
+            %td= author.first_name
+            %td= author.last_name
+            %td= "#{author.books.map {|book| book.title}.join(", ")}"
+            %td= link_to "Edit", edit_author_path(author)
+            %td= link_to "Delete", author_path(author), data: { confirm: "Are you sure?" }, :method => :delete
+
+%br
+
+= link_to 'New author', new_author_path

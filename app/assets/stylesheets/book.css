@@ -1,0 +1,169 @@
+.books-block{
+  width: 300px;
+  padding-top: 50px;
+  margin: 0 20px;
+  display: inline-block;
+}
+
+.book-info {
+  display: inline-block;
+  padding: 20px;
+}
+
+.book-info .book-img img {
+  height: 250px;
+  width: 200px;
+}
+
+.bottom-book-menu p{
+  display: inline;
+  margin-left: 10px; 
+}
+
+.show-book{
+  font-size: 1.5rem;
+}
+
+.show-book .books-block{
+  width: auto;
+  position: absolute;
+  top: 20%;
+  left: 20%;
+}
+
+.show-book .book-info .book-img img {
+  height: 100%;
+  width: 100%;
+}
+
+.container{
+  padding: 70px 0;
+  text-align: center;
+}
+
+.show-book .book-description{
+  display: inline-block;
+}
+
+.book-description{
+  text-align: left;
+}
+
+.back-btn{
+  font-size: 1.5rem;
+}
+
+.book-form{
+  color:blueviolet;
+}
+
+.button{
+  outline: none;
+  border: none;
+  padding: 10px 20px;
+  background: blueviolet;
+  color : #fff;
+  margin-top: 20px;
+}
+
+.button:hover{
+  background: rgb(71, 25, 117);
+}
+
+.book-form label{
+  width: 20%;
+}
+
+.checkbox label{
+  margin: 0;
+  padding: 0;
+}
+
+.book-form input, 
+.book-form select{
+  background: transparent;
+  border: none;
+  width: 40%;
+  border-bottom: blueviolet 1px solid;
+}
+
+.book-form .checkbox input,
+.book-form .checkbox label{
+  margin: 10px 5px;
+  text-align: center;
+  display: block;
+}
+
+span.checkbox:nth-child(3) label{
+  width: 37.5%;
+}
+
+span.checkbox:nth-child(2n){
+  display: block;
+}
+
+
+.check_boxes label:not(:first-child){
+  width: 200px;
+  text-align: left;
+}
+
+.check_boxes input{
+  width: 5px;
+}
+
+
+.book-form .checkbox input{
+  display: inline;
+}
+
+.book-form .checkbox label{
+  display: inline-block;
+}
+
+.book-form select{
+  border: none;
+  background:transparent;
+	border-bottom: 1px solid blueviolet;
+	border-radius: 4px;
+  padding: 5px 0;
+	font-size: 16px;
+  color: #3F3F3F;
+  -webkit-appearance: none;
+  -moz-appearance: none;      
+  appearance: none;
+  -webkit-border-radius: 0px;
+  -moz-border-radius: 0px;
+  border-radius: 0px;
+}
+
+.book-form select::-ms-expand {
+  display: none;
+}
+
+.new-entity {
+  background: lightcoral;
+  width: 100px;
+  outline: none;
+  text-decoration: none;
+  text-align: center;
+}
+
+a:link,a:visited,a:active {
+  text-decoration: none;
+  color: blueviolet;
+}
+
+a:hover {
+  text-decoration: none;
+  color: #09f764;
+}
+
+.book_cover{
+  display: block;
+  color: blueviolet;
+}
+
+#book_book_img{
+  margin-top: 20px;
+}

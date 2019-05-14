@@ -1,0 +1,10 @@
+= simple_form_for @book, defaults: { wrapper_html: { class: 'book-form' } }  do |f|
+    = f.input :title
+    = f.association :author, include_blank: false
+    = f.association :genres,  as: :check_boxes, include_blank: false
+    = f.input :description
+    = f.file_field :book_img, accept: 'image/png,image/jpeg'
+    = f.label "Only png and jpeg are acceptable formats, should be less than 500kb", nil, class: 'book_cover'
+    = f.button :submit
+
+%p.back-btn= link_to 'Back', :back

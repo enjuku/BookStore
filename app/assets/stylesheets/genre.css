@@ -1,0 +1,14 @@
+.genre-form label{
+    width: 20%;
+}
+
+.genre-form{
+    color :blueviolet;
+}
+
+.genre-form input{
+  background: transparent;
+  border: none;
+  width: 40%;
+  border-bottom: blueviolet 1px solid;
+}
