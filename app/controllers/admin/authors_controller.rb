@@ -4,7 +4,6 @@ class Admin::AuthorsController < ApplicationController
     before_action :find_author, only: [:show, :edit, :update, :destroy]
 
     def index
-        # @authors = Author.eager_load(:books)
         @authors = Author.all
     end
 

@@ -1,15 +1,18 @@
-
-.author-form label{
-    width: 20%;
-}
-
-.author-form{
-    color :blueviolet;
-}
-
-.author-form input{
-  background: transparent;
+.new_author input,
+.edit_author input {
+  font-size: 1.5rem;
   border: none;
-  width: 40%;
-  border-bottom: blueviolet 1px solid;
+  width: 400px;
+  outline: none;
+  border-bottom: 1px solid blueviolet;
+  margin: 20px 0px;
+}
+
+.new_author .button {
+  background: blueviolet;
+  color: white;
+}
+
+.edit_author label {
+  width: 20%;
 }

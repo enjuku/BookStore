@@ -19,7 +19,7 @@ class UsersTest < ActionDispatch::IntegrationTest
         assert_response :redirect
         follow_redirect!
         user = User.find_by_email("mymail@mail.com")
-        assert_select '.alert_message', text: "Registration email sent to #{user.email}. Open this email to finish signup."\
+        assert_select '.alert_message', text: "Welcome email sent to #{user.email}."\
                                                 "If you don't see this email in your inbox within 15 minutes, look for it in your junk mail folder."\
                                                 "If you find it there, please mark the email as 'Not Junk'." 
     end

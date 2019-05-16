@@ -90,18 +90,17 @@
 .book-form .checkbox input,
 .book-form .checkbox label{
   margin: 10px 5px;
-  text-align: center;
+  text-align: left;
   display: block;
 }
 
 span.checkbox:nth-child(3) label{
-  width: 37.5%;
+  width: 40%;
 }
 
 span.checkbox:nth-child(2n){
   display: block;
 }
-
 
 .check_boxes label:not(:first-child){
   width: 200px;

@@ -4,10 +4,6 @@
  *= require_self
 */
 
-/* html{
-  overflow: hidden;
-} */
-
 body {
   background: rgb(235, 216, 216);
   overflow-x: hidden;
@@ -26,7 +22,7 @@ body {
 
 .nav-bar {
   font-size: 1.2rem;
-  height: 60px;
+  height: 66px;
   margin: 0;
   padding: 0;
   background: #5900ff;
@@ -50,9 +46,23 @@ body {
   padding: 20px;
 }
 
+.btn {
+  background: blueviolet;
+  /* border: 1 p; */
+}
+
+.btn:hover {
+  background: lightgreen;
+  transition: 2s;
+  border: 1px solid black;
+
+}
+
 .nav-bar li:not(.profile):not(.logout):hover > a {
-  color: yellow;
-  border-bottom: 3px solid yellow;
+  background: lightgreen;
+  color: black;
+  border-bottom: 3px solid black;
+  transition: 0.5s;
 }
 
 .search-form {
@@ -92,7 +102,6 @@ input#user_name,
 input#user_email,
 input#user_password,
 input#user_password_confirmation{
-  /* background: white; */
   background: rgb(235, 216, 216);
 }
 
@@ -118,15 +127,17 @@ input#search{
 .nav-bar .profile{
   font-size: 1.5rem;
   float: right;
-  border-bottom: 3px solid yellow;
-  /* border: 2px solid white; */
   margin-right: 100px;
 }
 
 .nav-bar .profile a{
-  color: yellow;
   text-transform: uppercase;
+  color: black;
+  background-color: white;
+  border: 1px solid transparent;
+  border-radius: 0 0 20px 20px;
 }
+
 
 .alert-error{
   color: red;
@@ -149,12 +160,4 @@ table{
   margin-left: auto;
   margin-right: auto;
 }
-
-/* .field_with_errors {
-  padding: 2px;
-  background-color: red;
-  border-top: 1px solid red;
-  display: table;
-} */
-
 

@@ -22,6 +22,7 @@ class BooksController < ApplicationController
           redirect_to books_path
         else 
           render 'new'
+          flash[:danger] = "Book was not created! Not all required fields were filled or image parameters are incorrect." 
         end
     end
 

@@ -1,5 +1,5 @@
 .new_user input,
-.edit_user input{
+.edit_user input {
   font-size: 1.5rem;
   border: none;
   width: 400px;
@@ -8,36 +8,19 @@
   margin: 20px 0px;
 }
 
-.new_user .button{
+.new_user .button {
   background: blueviolet;
   color: white;
 }
-
-/* .new_user .field_with_errors{
-  background: red;
-  margin: 0 auto;
-  width: 400px;
-  text-align: center;
-} */
-
-/* 
-.edit_user input{
-  font-size: 1.5rem;
-  border: none;
-  outline: none;
-  border-bottom: 1px solid blueviolet;
-  margin: 20px 0px;
-  width: 25%;
-} */
 
 .edit_user label {
   width: 20%;
 }
 
-.edit_user .button{
+/* .edit_user .button{
   background: blueviolet;
   color: white;
-}
+} */
 
 .hint {
   display: block;

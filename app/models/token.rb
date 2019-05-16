@@ -6,28 +6,25 @@ class Token < ActiveRecord::Base
         :presence => true,
         :uniqueness => true
 
-  # before_create :delete_previous_tokens, :generate_new_token
-
   before_validation :delete_previous_tokens, :generate_new_token
 
-  cattr_accessor :validity_time
-
-  self.validity_time = 1.day
-
-  # def self.generate_token_value
-  #   self.value
-  # end
+  VALIDITY_TIME = {
+    'autologin'         => 1.year,
+    'session'           => nil,
+    'password_recovery' => 1.day
+  }
 
   def generate_new_token
     loop do 
-      # self.value = Random.new.rand(1..2)
       self.value = SecureRandom.urlsafe_base64(50)
       break if !Token.find_user(self.value)
     end
   end
 
   def expired?
-    created_at + validity_time < Time.now.utc
+    if VALIDITY_TIME[self.action]
+      created_at + VALIDITY_TIME[self.action] < Time.now.utc
+    end
   end
 
   def delete_previous_tokens
@@ -43,6 +40,14 @@ class Token < ActiveRecord::Base
       token.user
     else 
       nil
+    end
+  end
+
+  def self.destroy_expired
+    Token.all.each do |t| 
+      if t.expired? 
+        t.delete 
+      end
     end
   end
 

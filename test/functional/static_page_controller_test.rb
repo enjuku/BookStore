@@ -1,7 +1,10 @@
 require 'test_helper'
 
 class StaticPageControllerTest < ActionDispatch::IntegrationTest
-  # test "the truth" do
-  #   assert true
-  # end
+  
+  test 'should show main page' do
+    get '/'
+    assert_response :success  
+  end
+
 end

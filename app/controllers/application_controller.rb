@@ -15,7 +15,6 @@ class ApplicationController < ActionController::Base
     elsif autologin_user = try_to_autologin
       user = autologin_user
     else 
-      # User.current = User.anonymous
       user = User.anonymous
     end
     user

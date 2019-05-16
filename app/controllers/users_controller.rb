@@ -1,8 +1,8 @@
 class UsersController < ApplicationController
 
-  def login  
-    redirect_to root_path if User.current.logged?
+  before_action :redirect_if_logged, only: [:login, :signup]
 
+  def login  
     if request.post?
       user = User.find_by(email: params[:session][:email].downcase)
 
@@ -32,40 +32,32 @@ class UsersController < ApplicationController
       :value => token,
       :expires => 1.year.from_now,
       :httponly => true
-    }    
+    }   
   end
 
   def logout
+    redirect_to root_path if request.get?
     if User.current.anonymous?
-      redirect_to root_path
+      redirect_to root_url
     elsif request.post?
       logout_user
-      redirect_to root_path
+      redirect_to root_url
     end
   end
 
   def signup
-    if !User.current.logged?
-      @user = User.new
-      if request.post?
-        @user = User.new(user_params)
-        if @user.save
-          # unless User.current and User.current.admin?
-            # log_in @user
-          MailerWorker.perform_async(params[:user][:name], params[:user][:email])
-          flash[:notice] = "Registration email sent to #{@user.email}. Open this email to finish signup."\
-              "If you don't see this email in your inbox within 15 minutes, look for it in your junk mail folder."\
-              "If you find it there, please mark the email as 'Not Junk'."
-          redirect_to root_path 
-          # else
-          #   redirect_to users_path
-          # end
-        else 
-          render 'signup'
-        end
+    @user = User.new
+    if request.post?
+      @user = User.new(user_params)
+      if @user.save
+        MailerWorker.perform_async(params[:user][:name], params[:user][:email])
+        flash[:notice] = "Welcome email sent to #{@user.email}."\
+            "If you don't see this email in your inbox within 15 minutes, look for it in your junk mail folder."\
+            "If you find it there, please mark the email as 'Not Junk'."
+        redirect_to root_path 
+      else 
+        render 'signup'
       end
-    else 
-      redirect_to root_path
     end
   end
 
@@ -87,23 +79,17 @@ class UsersController < ApplicationController
         end
       end
     end
-
   end
 
   def lost_password
     if request.post?  
       @user = User.find_by_email(params[:password_reset][:email])
       if @user
-        @user.password_reset_sent_at = Time.zone.now
-        # @user.password_reset_token = Token.generate_token_value(@user.id, 'password_recovery')
         token = Token.create!(:user_id => @user.id, :action => 'password_recovery')
-        # @user.password_reset_token = token
         @user.save!
         PasswordResetWorker.perform_async(@user.name, @user.email, token.value)
         redirect_to root_url
         flash[:info] = "Email sent with password reset instructions to #{@user.email}"
-        # redirect_to root_url, :flash => { :info => "Email sent with password reset instructions to #{@user.email}" }
-
       else
         redirect_to root_path, :flash => { :error => "No users found with following email #{params[:password_reset][:email]}" }
       end
@@ -124,7 +110,6 @@ class UsersController < ApplicationController
         end
       end
     else
-      # redirect_to root_path
       render_404
     end
   end
@@ -143,20 +128,9 @@ class UsersController < ApplicationController
 
   private
 
-    # def correct_user
-    #   @user = User.find(User.current[:id])
-    #   redirect_to(root_path) unless @user == User.current
-    # end
-    
-    # def find_user_by_id
-    #   if User.current.admin?
-    #     begin 
-    #       @user = User.find(params[:id])
-    #     rescue ActiveRecord::RecordNotFound
-    #       @user = User.find(User.current[:id])
-    #     end    
-    #   end
-    # end
+    def redirect_if_logged
+      redirect_to root_path if User.current.logged?
+    end
 
     def user_params
       params.require(:user).permit(:name, :email, :password, :password_confirmation)

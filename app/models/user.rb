@@ -4,9 +4,6 @@ class User < ApplicationRecord
   include BCrypt
   has_secure_password
 
-  # accepts_nested_attributes_for :password_resets
-  # before_create { generate_token(:auth_token) }
-
   validates :name,
     :uniqueness => {:message => "User name already taken."},
     :presence => {:message => "User name can't be balnk."}
@@ -23,8 +20,6 @@ class User < ApplicationRecord
                 :too_long => "Must be less than 20 characters",
                 :too_short => "Must be more than 6 characters"}
   
-  # validates :token, presence: true, uniqueness: true, strict: TokenGenerationException
-
   def generate_autologin_token
     token = Token.create!(:user_id => id, :action => 'autologin')
     token.value
@@ -70,27 +65,14 @@ class User < ApplicationRecord
   end
 
   def self.anonymous
-    # anonymous_user = AnonymousUser.unscoped.find_by(:lastname => 'Anonymous')
-    # if anonymous_user.nil?
-    #   anonymous_user = AnonymousUser.unscoped.create(:lastname => 'Anonymous', :firstname => '', :login => '', :status => 0)
-    #   raise 'Unable to create the anonymous user.' if anonymous_user.new_record?
-    # end
-    # anonymous_user
-    AnonymousUser.create(name: "Anonymous")
+    AnonymousUser.create
   end
   
 end
 
+
 class AnonymousUser < User
-  validate :validate_anonymous_uniqueness, :on => :create
 
   def logged?; false end
-  # def admin; false end
-
-  def validate_anonymous_uniqueness
-    # There should be only one AnonymousUser in the database
-    # puts "#{AnonymousUser.exists?}"
-    # errors.add :base, 'An anonymous user already exists.' if AnonymousUser.exists?
-  end
 
 end
