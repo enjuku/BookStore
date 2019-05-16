@@ -18,6 +18,10 @@
     $ rvm install 2.5.1
     $ rvm use 2.5.1
     ```
+  - Rails
+    ```
+    $ apt install ruby-railties
+    ```
   - NodeJs
     ```
     $ apt install nodejs
