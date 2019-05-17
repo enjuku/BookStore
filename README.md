@@ -53,9 +53,16 @@ $ rails test
 ```
 
 # Запуск приложения
+Перед запуском необходимо включить сервис redis
 ```
 $ service redis-server start
-$ bundle exec sidekiq 
+```
+Запустить sidekiq
+```
+$ bundle exec sidekiq
+```
+Запустить приложение
+```
 $ rails s
 ```
 
