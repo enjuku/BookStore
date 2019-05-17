@@ -1,3 +1,7 @@
+# Задание
+
+https://drive.google.com/file/d/1INy16cB-o8NA5aIVc9N_ZwhjHLePZlpv/view?fbclid=IwAR1qX_rByMmnpVyDaUXkGxrpkoW89qJYAtLsUPrycKpRrmBCSBizlxGDY_M
+
 # Установка
 
 ## Процесс установки приведён на примере операционной системы [Ubuntu 18.10](http://releases.ubuntu.com/18.10/)
