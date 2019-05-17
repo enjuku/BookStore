@@ -64,7 +64,3 @@ book_titles.each_with_index do |title, index|
         updated_at: DateTime.now.to_date,
         book_img: File.open(File.join(Rails.root,"app/assets/images/#{index+1}.jpg")))
 end
-
-# rake db:drop db:create db:migrate db:seed
-# rake db:seed
-

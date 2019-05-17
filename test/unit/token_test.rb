@@ -20,4 +20,15 @@ class TokenTest < ActiveSupport::TestCase
         assert !Token.exists?(t1.id)
         assert  Token.exists?(t2.id)
     end
+
+    test "should destroy expired tokens" do 
+        Token.delete_all
+        t1 = Token.create!(:user_id => 1, :action => 'autologin', :created_at => 370.days.ago)
+        t2 = Token.create!(:user_id => 2, :action => 'autologin', :created_at => 150.days.ago)
+        t3 = Token.create!(:user_id => 1, :action => 'password_recovery', :created_at => 29.hours.ago)
+        t4 = Token.create!(:user_id => 2, :action => 'password_recovery', :created_at => 10.hours.ago)
+        assert_difference 'Token.count', -2 do
+            Token.destroy_expired
+        end
+    end
 end

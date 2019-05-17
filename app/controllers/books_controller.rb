@@ -19,10 +19,11 @@ class BooksController < ApplicationController
         @book = Book.new(book_params)
 
         if @book.save
-          redirect_to books_path
+            redirect_to books_path
+            flash[:success] = "Book successfully created!" 
         else 
-          render 'new'
-          flash[:danger] = "Book was not created! Not all required fields were filled or image parameters are incorrect." 
+            flash[:danger] = "Book was not created! Not all required fields were filled or image parameters are incorrect." 
+            render 'new'
         end
     end
 
@@ -39,7 +40,7 @@ class BooksController < ApplicationController
 
     def destroy
 		@book.destroy
-		redirect_to root_path
+		redirect_to books_path
     end
 
     private
