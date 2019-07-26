@@ -1,3 +1,22 @@
+# Обзор
+## Главная страница
+![Logo](/public/01-37-2019-11_37_10.png)
+
+## Страница входа 
+![Logo](/public/01-37-2019-11_37_22.png)
+
+## Интерфейс пользователя
+![Logo](/public/26-00-2019-13_00_45.png)
+
+## Интерфейс администратора
+![Logo](/public/01-27-2019-12_27_10.png)
+
+## Фильтр результатов
+![Logo](/public/26-01-2019-13_01_04.png)
+
+## Редактирование записей администратором 
+![Logo](/public/01-27-2019-12_27_51.png)
+
 # Задание
 
 https://drive.google.com/file/d/1INy16cB-o8NA5aIVc9N_ZwhjHLePZlpv/view?fbclid=IwAR1qX_rByMmnpVyDaUXkGxrpkoW89qJYAtLsUPrycKpRrmBCSBizlxGDY_M
